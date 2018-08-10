@@ -12,6 +12,21 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log('App - Constructor');
+  }
+
+  /**
+   * This method is called after our component is rendered into the dom and is the perfect place to make
+   * ajax calls to get data from the server
+   */
+  componentDidMount() {
+    //Ajax call
+    //Call setState with new data
+    console.log('App - Mounted');
+  }
+
   handleReset = () => {
     const counters = this.state.counters.map(counter => {
       counter.value = 0;
@@ -78,7 +93,12 @@ class App extends Component {
     //Update the state
     this.setState({ counters })
   }
+
+  /**
+   * When a component is rendered, of its children are also rendered recursively
+   */
   render() {
+    console.log('App - Rendered');
     return (
       <Fragment>
         <NavBar
@@ -86,7 +106,7 @@ class App extends Component {
         <main className="container">
           <Counters
             counters={this.state.counters}
-            onReset={this.props.handleReset}
+            onReset={this.handleReset}
             onIncrement={this.handleIncrement}
             onDelete={this.handleDelete}
           />

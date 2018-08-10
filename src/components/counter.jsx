@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-
+  /**
+   * This method is called after a component is updated, which means we have new state or new props, so we
+   * can compare this state with the old or this props with the old ones  and is there is a change we can make
+   * an ajax request to get new data from the server.
+   */
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevProps', prevProps);
+    console.log('prevState', prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      //Ajax call and get new data from the server
+    }
+  }
+  /**
+   * This method is called just before a component is removed from the dom
+   */
+  componentWillUnmount() {
+    console.log('Counter - Unmounted');
+  }
   render() {
+    console.log('Counter - Rendered')
     return (
       <div>
         <h4>Counter {this.props.id}</h4>

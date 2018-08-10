@@ -4,6 +4,7 @@ import Counter from './counter';
 class Counters extends Component {
 
   render() {
+    console.log('Counters - Rendered');
 
     //Destructureing props to get properties I need
 
